@@ -1,0 +1,11 @@
+C:\Programming\C#\CMRV\CMRVLibrary\bin\Debug\CMRVLibrary.dll
+C:\Programming\C#\CMRV\CMRVLibrary\bin\Debug\CMRVLibrary.pdb
+C:\Programming\C#\CMRV\CMRVLibrary\bin\Debug\EntityFramework.dll
+C:\Programming\C#\CMRV\CMRVLibrary\bin\Debug\EntityFramework.SqlServer.dll
+C:\Programming\C#\CMRV\CMRVLibrary\bin\Debug\EntityFramework.xml
+C:\Programming\C#\CMRV\CMRVLibrary\bin\Debug\EntityFramework.SqlServer.xml
+C:\Programming\C#\CMRV\CMRVLibrary\bin\Debug\ru\EntityFramework.resources.dll
+C:\Programming\C#\CMRV\CMRVLibrary\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\Programming\C#\CMRV\CMRVLibrary\obj\Debug\CMRVLibrary.csprojResolveAssemblyReference.cache
+C:\Programming\C#\CMRV\CMRVLibrary\obj\Debug\CMRVLibrary.dll
+C:\Programming\C#\CMRV\CMRVLibrary\obj\Debug\CMRVLibrary.pdb

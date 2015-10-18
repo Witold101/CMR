@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="crm_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="td_department">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="td_employee" Relationship="Self.department_ref" FromRole="td_department" ToRole="td_employee" />
+  </EntityType>
+  <EntityType Name="td_employee">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="create_time" Type="DateTime" Nullable="false" />
+    <Property Name="appdate_time" Type="DateTime" Nullable="false" />
+    <Property Name="department_id" Type="Int32" Nullable="false" />
+    <Property Name="level_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="td_department" Relationship="Self.department_ref" FromRole="td_employee" ToRole="td_department" />
+    <NavigationProperty Name="td_level" Relationship="Self.level_ref" FromRole="td_employee" ToRole="td_level" />
+  </EntityType>
+  <EntityType Name="td_level">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="namber" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="td_employee" Relationship="Self.level_ref" FromRole="td_level" ToRole="td_employee" />
+  </EntityType>
+  <Association Name="department_ref">
+    <End Role="td_department" Type="Self.td_department" Multiplicity="1" />
+    <End Role="td_employee" Type="Self.td_employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="td_department">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="td_employee">
+        <PropertyRef Name="department_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="level_ref">
+    <End Role="td_level" Type="Self.td_level" Multiplicity="1" />
+    <End Role="td_employee" Type="Self.td_employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="td_level">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="td_employee">
+        <PropertyRef Name="level_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="crm_dbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="td_department" EntityType="Self.td_department" />
+    <EntitySet Name="td_employee" EntityType="Self.td_employee" />
+    <EntitySet Name="td_level" EntityType="Self.td_level" />
+    <AssociationSet Name="department_ref" Association="Self.department_ref">
+      <End Role="td_department" EntitySet="td_department" />
+      <End Role="td_employee" EntitySet="td_employee" />
+    </AssociationSet>
+    <AssociationSet Name="level_ref" Association="Self.level_ref">
+      <End Role="td_level" EntitySet="td_level" />
+      <End Role="td_employee" EntitySet="td_employee" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

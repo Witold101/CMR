@@ -1,0 +1,4 @@
+C:\Programming\C#\CMRV\CMRModelLib\bin\Debug\CMRModelLib.dll
+C:\Programming\C#\CMRV\CMRModelLib\bin\Debug\CMRModelLib.pdb
+C:\Programming\C#\CMRV\CMRModelLib\obj\Debug\CMRModelLib.dll
+C:\Programming\C#\CMRV\CMRModelLib\obj\Debug\CMRModelLib.pdb

@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище crm_dbModel" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="td_department">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_employee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="create_time" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="appdate_time" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="department_id" Type="int" Nullable="false" />
+          <Property Name="level_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="td_level">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="namber" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="department_ref">
+          <End Role="td_department" Type="Self.td_department" Multiplicity="1" />
+          <End Role="td_employee" Type="Self.td_employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="td_department">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="td_employee">
+              <PropertyRef Name="department_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="level_ref">
+          <End Role="td_level" Type="Self.td_level" Multiplicity="1" />
+          <End Role="td_employee" Type="Self.td_employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="td_level">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="td_employee">
+              <PropertyRef Name="level_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище crm_dbModelContainer">
+          <EntitySet Name="td_department" EntityType="Self.td_department" Schema="crm_db" store:Type="Tables" />
+          <EntitySet Name="td_employee" EntityType="Self.td_employee" Schema="crm_db" store:Type="Tables" />
+          <EntitySet Name="td_level" EntityType="Self.td_level" Schema="crm_db" store:Type="Tables" />
+          <AssociationSet Name="department_ref" Association="Self.department_ref">
+            <End Role="td_department" EntitySet="td_department" />
+            <End Role="td_employee" EntitySet="td_employee" />
+          </AssociationSet>
+          <AssociationSet Name="level_ref" Association="Self.level_ref">
+            <End Role="td_level" EntitySet="td_level" />
+            <End Role="td_employee" EntitySet="td_employee" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="crm_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="td_department">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="td_employee" Relationship="Self.department_ref" FromRole="td_department" ToRole="td_employee" />
+        </EntityType>
+        <EntityType Name="td_employee">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="create_time" Type="DateTime" Nullable="false" />
+          <Property Name="appdate_time" Type="DateTime" Nullable="false" />
+          <Property Name="department_id" Type="Int32" Nullable="false" />
+          <Property Name="level_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="td_department" Relationship="Self.department_ref" FromRole="td_employee" ToRole="td_department" />
+          <NavigationProperty Name="td_level" Relationship="Self.level_ref" FromRole="td_employee" ToRole="td_level" />
+        </EntityType>
+        <EntityType Name="td_level">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="namber" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="td_employee" Relationship="Self.level_ref" FromRole="td_level" ToRole="td_employee" />
+        </EntityType>
+        <Association Name="department_ref">
+          <End Role="td_department" Type="Self.td_department" Multiplicity="1" />
+          <End Role="td_employee" Type="Self.td_employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="td_department">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="td_employee">
+              <PropertyRef Name="department_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="level_ref">
+          <End Role="td_level" Type="Self.td_level" Multiplicity="1" />
+          <End Role="td_employee" Type="Self.td_employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="td_level">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="td_employee">
+              <PropertyRef Name="level_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="crm_dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="td_department" EntityType="Self.td_department" />
+          <EntitySet Name="td_employee" EntityType="Self.td_employee" />
+          <EntitySet Name="td_level" EntityType="Self.td_level" />
+          <AssociationSet Name="department_ref" Association="Self.department_ref">
+            <End Role="td_department" EntitySet="td_department" />
+            <End Role="td_employee" EntitySet="td_employee" />
+          </AssociationSet>
+          <AssociationSet Name="level_ref" Association="Self.level_ref">
+            <End Role="td_level" EntitySet="td_level" />
+            <End Role="td_employee" EntitySet="td_employee" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище crm_dbModelContainer" CdmEntityContainer="crm_dbEntities">
+          <EntitySetMapping Name="td_department">
+            <EntityTypeMapping TypeName="crm_dbModel.td_department">
+              <MappingFragment StoreEntitySet="td_department">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="td_employee">
+            <EntityTypeMapping TypeName="crm_dbModel.td_employee">
+              <MappingFragment StoreEntitySet="td_employee">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="create_time" ColumnName="create_time" />
+                <ScalarProperty Name="appdate_time" ColumnName="appdate_time" />
+                <ScalarProperty Name="department_id" ColumnName="department_id" />
+                <ScalarProperty Name="level_id" ColumnName="level_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="td_level">
+            <EntityTypeMapping TypeName="crm_dbModel.td_level">
+              <MappingFragment StoreEntitySet="td_level">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="namber" ColumnName="namber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище crm_dbModel" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="td_department">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="td_employee">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="100" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="create_time" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="appdate_time" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="department_id" Type="int" Nullable="false" />
+    <Property Name="level_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="td_level">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="namber" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="department_ref">
+    <End Role="td_department" Type="Self.td_department" Multiplicity="1" />
+    <End Role="td_employee" Type="Self.td_employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="td_department">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="td_employee">
+        <PropertyRef Name="department_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="level_ref">
+    <End Role="td_level" Type="Self.td_level" Multiplicity="1" />
+    <End Role="td_employee" Type="Self.td_employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="td_level">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="td_employee">
+        <PropertyRef Name="level_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище crm_dbModelContainer">
+    <EntitySet Name="td_department" EntityType="Self.td_department" Schema="crm_db" store:Type="Tables" />
+    <EntitySet Name="td_employee" EntityType="Self.td_employee" Schema="crm_db" store:Type="Tables" />
+    <EntitySet Name="td_level" EntityType="Self.td_level" Schema="crm_db" store:Type="Tables" />
+    <AssociationSet Name="department_ref" Association="Self.department_ref">
+      <End Role="td_department" EntitySet="td_department" />
+      <End Role="td_employee" EntitySet="td_employee" />
+    </AssociationSet>
+    <AssociationSet Name="level_ref" Association="Self.level_ref">
+      <End Role="td_level" EntitySet="td_level" />
+      <End Role="td_employee" EntitySet="td_employee" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

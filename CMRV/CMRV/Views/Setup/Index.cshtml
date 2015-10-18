@@ -1,0 +1,167 @@
+﻿@model IEnumerable<CMRVLibrary.Main.CountryCode>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+
+
+
+
+
+<div id="dialogCountryCodeAdd">
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#panel1">@GlobalRes.Primary</a></li>
+        <li><a data-toggle="tab" href="#panel2">Menu 2</a></li>
+        <li><a data-toggle="tab" href="#panel3">Menu 3</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="panel1" class="tab-pane fade in active">
+            <div class="btn-group" role="group" aria-label="...">
+                <button type="button" class="btn btn-default">@GlobalRes.CountryCode</button>
+                <button type="button" class="btn btn-default">@GlobalRes.TypePhone</button>
+                <button type="button" class="btn btn-default">@GlobalRes.Roles</button>
+            </div>
+            <div>
+                <!-------------------------------------------------------->
+
+
+
+
+
+
+                <div style="padding-top: 20px">
+                    <table class="table table-striped">
+                        <tr class="active">
+                            <td><strong>@GlobalRes.Country</strong></td>
+                            <td><strong>@GlobalRes.CountryCode</strong></td>
+                            <td></td>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Country)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Code)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
+                                    @Html.ActionLink("Details", "Details", new {id = item.Id}) |
+                                    @Html.ActionLink("Delete", "Delete", new {id = item.Id})
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-default" data-toggle="modal"
+                                        data-target="#messModal" data-backdrop="static">
+                                    @GlobalRes.Create
+                                </button>
+                            </td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+                <!---------------------- Форма по добавлению Телефонного кода страны ------------------------------->
+                <div class="modal fade" id="messModal" role="dialog" tabindex="-1" aria-labelledby="modalLabel">
+                    @using (Ajax.BeginForm("PartialCountryCode", new AjaxOptions
+                    {
+                        UpdateTargetId = "dialogCountryCodeAdd",
+                        HttpMethod = "post",
+                        OnComplete = "closemod()"
+                    }))
+                    {
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                @Html.AntiForgeryToken()
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <h4 class="modal-title" id="modalLabel">@GlobalRes.CountryCodeAdd</h4>
+                                </div>
+
+                                <div class="modal-body">
+                                    @Html.ValidationSummary(true)
+                                    <div class="form-group">
+                                        @Html.Label(GlobalRes.Country)
+                                        @Html.TextBox("Country", null, new
+                                        {
+                                            @class = "form-control",
+                                            @pattern = "^[a-zA-ZА-Яа-яЁё\\s]+$",
+                                            @required = "required",
+                                            @title = GlobalRes.Country
+                                        })
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.Label(GlobalRes.CountryCode)
+                                        @Html.TextBox("Code", null, new
+                                        {
+                                            @class = "form-control",
+                                            @title = GlobalRes.EnterOnlyFigures,
+                                            @maxlength = "5",
+                                            @pattern = "^[ 0-9]+$",
+                                            @required = "required",
+                                        })
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <input class="btn btn-primary" type="submit" value=@GlobalRes.Save>
+                                </div>
+                            </div>
+                            <!-- /.modal-content -->
+                        </div>
+                    }
+                    <!-- /.modal - dialog -->
+                </div>
+
+
+
+
+
+
+
+
+
+                <!--Html.Partial("PartialCountryCode");-->
+                <!--**********Конец частичное представление Телефлнные коды стран*******-->
+            </div>
+        </div>
+        <div id="panel2" class="tab-pane fade">
+            <h3>Menu 1</h3>
+            <p>Some content in menu 1.</p>
+        </div>
+        <div id="panel3" class="tab-pane fade">
+            <h3>Menu 2</h3>
+            <p>Some content in menu 2.</p>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function closemod() {
+
+        $('#messModal').modal('hide');
+    }
+
+    function open_modal() {
+        $('#dialogCountryCodeAdd').modal('show');
+    }
+</script>
+
+
+@section Scripts {
+
+        @Scripts.Render("~/bundles/jqueryval")
+
+        @Scripts.Render("~/scripts/jquery-XXX.js")
+        @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.js")
+    }
