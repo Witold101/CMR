@@ -51,7 +51,7 @@ namespace CMRW.Controllers.Main
                 db.td_department.Add(department);
                 db.SaveChanges();
             }
-            return PartialView("ParDepartmentAdd",db.td_department.ToList());
+            return RedirectToAction("Index");
         } 
 
     }

@@ -97,3 +97,9 @@ C:\Programming\C#\CMRV\CMRV\bin\FubuMVC.Ajax.pdb
 C:\Programming\C#\CMRV\CMRV\bin\FubuMVC.Core.pdb
 C:\Programming\C#\CMRV\CMRV\bin\HtmlTags.pdb
 C:\Programming\C#\CMRV\CMRV\bin\HtmlTags.xml
+C:\Programming\C#\CMR\CMRV\CMRV\obj\Debug\CMRV.csprojResolveAssemblyReference.cache
+C:\Programming\C#\CMR\CMRV\CMRV\obj\Debug\CMRV.App_GlobalResources.GlobalRes.resources
+C:\Programming\C#\CMR\CMRV\CMRV\obj\Debug\CMRV.App_GlobalResources.GlobalRes.En.resources
+C:\Programming\C#\CMR\CMRV\CMRV\obj\Debug\CMRV.App_GlobalResources.GlobalRes.Pl.resources
+C:\Programming\C#\CMR\CMRV\CMRV\obj\Debug\CMRV.csproj.GenerateResource.Cache
+C:\Programming\C#\CMR\CMRV\CMRV\obj\Debug\CMRV.dll

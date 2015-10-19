@@ -115,6 +115,42 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, такую же, как Удалить.
+        /// </summary>
+        internal static string Dell {
+            get {
+                return ResourceManager.GetString("Dell", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, такую же, как Отдел.
+        /// </summary>
+        internal static string Department {
+            get {
+                return ResourceManager.GetString("Department", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, такую же, как Добавить отдел.
+        /// </summary>
+        internal static string DepartmentAdd {
+            get {
+                return ResourceManager.GetString("DepartmentAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, такую же, как Редактировать.
+        /// </summary>
+        internal static string Edit {
+            get {
+                return ResourceManager.GetString("Edit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, такую же, как Вход.
         /// </summary>
         internal static string Enter {
