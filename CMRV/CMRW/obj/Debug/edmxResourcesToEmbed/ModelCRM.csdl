@@ -68,5 +68,164 @@
       <End Role="td_level" EntitySet="td_level" />
       <End Role="td_employee" EntitySet="td_employee" />
     </AssociationSet>
+    <EntitySet Name="td_client" EntityType="crm_dbModel.td_client" />
+    <EntitySet Name="td_contact" EntityType="crm_dbModel.td_contact" />
+    <EntitySet Name="td_country" EntityType="crm_dbModel.td_country" />
+    <EntitySet Name="td_maill" EntityType="crm_dbModel.td_maill" />
+    <EntitySet Name="td_note" EntityType="crm_dbModel.td_note" />
+    <EntitySet Name="td_phone" EntityType="crm_dbModel.td_phone" />
+    <AssociationSet Name="fk_td_contact_td_client1" Association="crm_dbModel.fk_td_contact_td_client1">
+      <End Role="td_client" EntitySet="td_client" />
+      <End Role="td_contact" EntitySet="td_contact" />
+    </AssociationSet>
+    <AssociationSet Name="fk_td_note_td_client1" Association="crm_dbModel.fk_td_note_td_client1">
+      <End Role="td_client" EntitySet="td_client" />
+      <End Role="td_note" EntitySet="td_note" />
+    </AssociationSet>
+    <AssociationSet Name="fk_td_maill_td_contact1" Association="crm_dbModel.fk_td_maill_td_contact1">
+      <End Role="td_contact" EntitySet="td_contact" />
+      <End Role="td_maill" EntitySet="td_maill" />
+    </AssociationSet>
+    <AssociationSet Name="fk_td_phone_td_contact1" Association="crm_dbModel.fk_td_phone_td_contact1">
+      <End Role="td_contact" EntitySet="td_contact" />
+      <End Role="td_phone" EntitySet="td_phone" />
+    </AssociationSet>
+    <AssociationSet Name="fk_td_phone_td_country1" Association="crm_dbModel.fk_td_phone_td_country1">
+      <End Role="td_country" EntitySet="td_country" />
+      <End Role="td_phone" EntitySet="td_phone" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="td_client">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="name_full" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="create_time" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="td_contact" Relationship="crm_dbModel.fk_td_contact_td_client1" FromRole="td_client" ToRole="td_contact" />
+    <NavigationProperty Name="td_note" Relationship="crm_dbModel.fk_td_note_td_client1" FromRole="td_client" ToRole="td_note" />
+  </EntityType>
+  <EntityType Name="td_contact">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="create_date" Type="DateTime" Nullable="false" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="client_id" Type="Int32" Nullable="false" />
+    <Property Name="department" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="td_client" Relationship="crm_dbModel.fk_td_contact_td_client1" FromRole="td_contact" ToRole="td_client" />
+    <NavigationProperty Name="td_maill" Relationship="crm_dbModel.fk_td_maill_td_contact1" FromRole="td_contact" ToRole="td_maill" />
+    <NavigationProperty Name="td_phone" Relationship="crm_dbModel.fk_td_phone_td_contact1" FromRole="td_contact" ToRole="td_phone" />
+  </EntityType>
+  <EntityType Name="td_country">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cod" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="td_phone" Relationship="crm_dbModel.fk_td_phone_td_country1" FromRole="td_country" ToRole="td_phone" />
+  </EntityType>
+  <EntityType Name="td_maill">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="maill" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="contact_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="td_contact" Relationship="crm_dbModel.fk_td_maill_td_contact1" FromRole="td_maill" ToRole="td_contact" />
+  </EntityType>
+  <EntityType Name="td_note">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="note" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="create_date" Type="DateTime" Nullable="false" />
+    <Property Name="client_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="td_client" Relationship="crm_dbModel.fk_td_note_td_client1" FromRole="td_note" ToRole="td_client" />
+  </EntityType>
+  <EntityType Name="td_phone">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="country_id" Type="Int32" Nullable="false" />
+    <Property Name="namber" Type="String" Nullable="false" MaxLength="45" FixedLength="false" Unicode="false" />
+    <Property Name="type_phone_id" Type="Int32" Nullable="false" />
+    <Property Name="contact_id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="td_contact" Relationship="crm_dbModel.fk_td_phone_td_contact1" FromRole="td_phone" ToRole="td_contact" />
+    <NavigationProperty Name="td_country" Relationship="crm_dbModel.fk_td_phone_td_country1" FromRole="td_phone" ToRole="td_country" />
+  </EntityType>
+  <Association Name="fk_td_contact_td_client1">
+    <End Type="crm_dbModel.td_client" Role="td_client" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="crm_dbModel.td_contact" Role="td_contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="td_client">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="td_contact">
+        <PropertyRef Name="client_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_td_note_td_client1">
+    <End Type="crm_dbModel.td_client" Role="td_client" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="crm_dbModel.td_note" Role="td_note" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="td_client">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="td_note">
+        <PropertyRef Name="client_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_td_maill_td_contact1">
+    <End Type="crm_dbModel.td_contact" Role="td_contact" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="crm_dbModel.td_maill" Role="td_maill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="td_contact">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="td_maill">
+        <PropertyRef Name="contact_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_td_phone_td_contact1">
+    <End Type="crm_dbModel.td_contact" Role="td_contact" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="crm_dbModel.td_phone" Role="td_phone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="td_contact">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="td_phone">
+        <PropertyRef Name="contact_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_td_phone_td_country1">
+    <End Type="crm_dbModel.td_country" Role="td_country" Multiplicity="1" />
+    <End Type="crm_dbModel.td_phone" Role="td_phone" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="td_country">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="td_phone">
+        <PropertyRef Name="country_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

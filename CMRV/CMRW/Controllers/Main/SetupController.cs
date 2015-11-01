@@ -78,7 +78,8 @@ namespace CMRW.Controllers.Main
                 departmentTable.name = department.name;
                 db.SaveChanges();
             }
-            return RedirectToAction("Index");
+            return PartialView("ParDepartment",db.td_department.ToList());
+            //return RedirectToAction("Index");
         }
 
         [HttpGet]

@@ -170,6 +170,15 @@
       <DependentUpon>ModelCRM.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="td_client.cs">
+      <DependentUpon>ModelCRM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="td_contact.cs">
+      <DependentUpon>ModelCRM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="td_country.cs">
+      <DependentUpon>ModelCRM.tt</DependentUpon>
+    </Compile>
     <Compile Include="td_department.cs">
       <DependentUpon>ModelCRM.tt</DependentUpon>
     </Compile>
@@ -177,6 +186,15 @@
       <DependentUpon>ModelCRM.tt</DependentUpon>
     </Compile>
     <Compile Include="td_level.cs">
+      <DependentUpon>ModelCRM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="td_maill.cs">
+      <DependentUpon>ModelCRM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="td_note.cs">
+      <DependentUpon>ModelCRM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="td_phone.cs">
       <DependentUpon>ModelCRM.tt</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -232,6 +250,7 @@
     <Content Include="Views\Setup\Index.cshtml" />
     <Content Include="Views\Setup\ParInitialSettings.cshtml" />
     <Content Include="Views\Setup\ParDepartment.cshtml" />
+    <Content Include="Views\Setup\ParPhoneCodes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

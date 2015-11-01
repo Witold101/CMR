@@ -130,7 +130,7 @@
     <value>Add country code</value>
   </data>
   <data name="CountryCodes" xml:space="preserve">
-    <value>Country codes</value>
+    <value>Phone codes</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Create New</value>

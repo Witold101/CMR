@@ -5,12 +5,6 @@
 }
 
 
-
-
-
-
-
-
 <div id="dialogCountryCodeAdd">
     <ul class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#panel1">@GlobalRes.Primary</a></li>
@@ -27,10 +21,6 @@
             </div>
             <div>
                 <!-------------------------------------------------------->
-
-
-
-
 
 
                 <div style="padding-top: 20px">
@@ -123,14 +113,6 @@
                     <!-- /.modal - dialog -->
                 </div>
 
-
-
-
-
-
-
-
-
                 <!--Html.Partial("PartialCountryCode");-->
                 <!--**********Конец частичное представление Телефлнные коды стран*******-->
             </div>
@@ -146,22 +128,4 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    function closemod() {
 
-        $('#messModal').modal('hide');
-    }
-
-    function open_modal() {
-        $('#dialogCountryCodeAdd').modal('show');
-    }
-</script>
-
-
-@section Scripts {
-
-        @Scripts.Render("~/bundles/jqueryval")
-
-        @Scripts.Render("~/scripts/jquery-XXX.js")
-        @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.js")
-    }

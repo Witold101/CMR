@@ -32,5 +32,66 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="td_client">
+      <EntityTypeMapping TypeName="crm_dbModel.td_client">
+        <MappingFragment StoreEntitySet="td_client">
+          <ScalarProperty Name="create_time" ColumnName="create_time" />
+          <ScalarProperty Name="name_full" ColumnName="name_full" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="td_contact">
+      <EntityTypeMapping TypeName="crm_dbModel.td_contact">
+        <MappingFragment StoreEntitySet="td_contact">
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="department" ColumnName="department" />
+          <ScalarProperty Name="client_id" ColumnName="client_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="td_country">
+      <EntityTypeMapping TypeName="crm_dbModel.td_country">
+        <MappingFragment StoreEntitySet="td_country">
+          <ScalarProperty Name="cod" ColumnName="cod" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="td_maill">
+      <EntityTypeMapping TypeName="crm_dbModel.td_maill">
+        <MappingFragment StoreEntitySet="td_maill">
+          <ScalarProperty Name="contact_id" ColumnName="contact_id" />
+          <ScalarProperty Name="maill" ColumnName="maill" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="td_note">
+      <EntityTypeMapping TypeName="crm_dbModel.td_note">
+        <MappingFragment StoreEntitySet="td_note">
+          <ScalarProperty Name="client_id" ColumnName="client_id" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="td_phone">
+      <EntityTypeMapping TypeName="crm_dbModel.td_phone">
+        <MappingFragment StoreEntitySet="td_phone">
+          <ScalarProperty Name="contact_id" ColumnName="contact_id" />
+          <ScalarProperty Name="type_phone_id" ColumnName="type_phone_id" />
+          <ScalarProperty Name="namber" ColumnName="namber" />
+          <ScalarProperty Name="country_id" ColumnName="country_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
