@@ -207,6 +207,7 @@
       <LastGenOutput>ModelCRM.cs</LastGenOutput>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\crmv.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -229,7 +230,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Setup\Index.cshtml" />
-    <Content Include="Views\Setup\ParDepartmentAdd.cshtml" />
+    <Content Include="Views\Setup\ParInitialSettings.cshtml" />
+    <Content Include="Views\Setup\ParDepartment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

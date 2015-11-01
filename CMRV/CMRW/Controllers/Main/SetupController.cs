@@ -36,14 +36,14 @@ namespace CMRW.Controllers.Main
         }
 
         [HttpGet]
-        public ActionResult ParDepartmentAdd()
+        public ActionResult ParInitialSettings()
         {
             return View(db.td_department.ToList());
         }
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ParDepartmentAdd([Bind(Include = "id,name")] td_department department)
+        public ActionResult ParInitialSettings([Bind(Include = "id,name")] td_department department)
         {
             if (ModelState.IsValid)
             {
@@ -52,7 +52,51 @@ namespace CMRW.Controllers.Main
                 db.SaveChanges();
             }
             return RedirectToAction("Index");
-        } 
+        }
 
+
+        [HttpGet]
+        public ActionResult ParDepartment()
+        {
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult ParInitialSettingsEdit()
+        {
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ParInitialSettingsEdit([Bind(Include = "id,name")] td_department department)
+        {
+            if (ModelState.IsValid)
+            {
+                department.name = department.name.Trim();
+                td_department departmentTable = db.td_department.Find(department.id);
+                departmentTable.name = department.name;
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult ParInitialSettingsDell()
+        {
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ParInitialSettingsDell([Bind(Include = "id")] td_department department)
+        {
+            if (ModelState.IsValid)
+            {
+                db.td_department.Remove(db.td_department.Find(department.id));
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        } 
     }
 }

@@ -162,6 +162,9 @@
   <data name="Primary" xml:space="preserve">
     <value>Primary</value>
   </data>
+  <data name="QuestionDell" xml:space="preserve">
+    <value>You really want to remove</value>
+  </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>

@@ -196,6 +196,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, такую же, как Вы действительно хотите удалить.
+        /// </summary>
+        internal static string QuestionDell {
+            get {
+                return ResourceManager.GetString("QuestionDell", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, такую же, как Регистрация.
         /// </summary>
         internal static string Register {
