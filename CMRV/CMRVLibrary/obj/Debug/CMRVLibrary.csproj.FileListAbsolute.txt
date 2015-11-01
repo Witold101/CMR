@@ -9,3 +9,8 @@ C:\Programming\C#\CMRV\CMRVLibrary\bin\Debug\ru\EntityFramework.SqlServer.resour
 C:\Programming\C#\CMRV\CMRVLibrary\obj\Debug\CMRVLibrary.csprojResolveAssemblyReference.cache
 C:\Programming\C#\CMRV\CMRVLibrary\obj\Debug\CMRVLibrary.dll
 C:\Programming\C#\CMRV\CMRVLibrary\obj\Debug\CMRVLibrary.pdb
+C:\Programming\C#\CMR\CMRV\CMRVLibrary\bin\Debug\CMRVLibrary.dll
+C:\Programming\C#\CMR\CMRV\CMRVLibrary\bin\Debug\CMRVLibrary.pdb
+C:\Programming\C#\CMR\CMRV\CMRVLibrary\obj\Debug\CMRVLibrary.csprojResolveAssemblyReference.cache
+C:\Programming\C#\CMR\CMRV\CMRVLibrary\obj\Debug\CMRVLibrary.dll
+C:\Programming\C#\CMR\CMRV\CMRVLibrary\obj\Debug\CMRVLibrary.pdb

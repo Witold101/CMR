@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMRV", "CMRV\CMRV.csproj", "{F94FDDB0-D680-4DDA-A979-F7E387188DDC}"
 EndProject
@@ -11,7 +11,7 @@ Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "CMRModel", "CMRModel\CMRMod
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMRModelLib", "CMRModelLib\CMRModelLib.csproj", "{7EB69AB0-DE3F-4D96-AC79-38B17DA67AA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMRW", "CMRW\CMRW.csproj", "{7BEB8B99-19E3-44E1-B35E-5167BBC51188}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMRW", "CMRW\CMRW.csproj", "{CFE407EF-6C1B-47E2-AEE8-530BACCA8473}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +35,10 @@ Global
 		{7EB69AB0-DE3F-4D96-AC79-38B17DA67AA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EB69AB0-DE3F-4D96-AC79-38B17DA67AA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EB69AB0-DE3F-4D96-AC79-38B17DA67AA8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7BEB8B99-19E3-44E1-B35E-5167BBC51188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7BEB8B99-19E3-44E1-B35E-5167BBC51188}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7BEB8B99-19E3-44E1-B35E-5167BBC51188}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7BEB8B99-19E3-44E1-B35E-5167BBC51188}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFE407EF-6C1B-47E2-AEE8-530BACCA8473}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFE407EF-6C1B-47E2-AEE8-530BACCA8473}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFE407EF-6C1B-47E2-AEE8-530BACCA8473}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFE407EF-6C1B-47E2-AEE8-530BACCA8473}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

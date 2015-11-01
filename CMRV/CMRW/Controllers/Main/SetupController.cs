@@ -79,7 +79,6 @@ namespace CMRW.Controllers.Main
                 db.SaveChanges();
             }
             return PartialView("ParDepartment",db.td_department.ToList());
-            //return RedirectToAction("Index");
         }
 
         [HttpGet]

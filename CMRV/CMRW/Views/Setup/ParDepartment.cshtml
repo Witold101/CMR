@@ -75,7 +75,8 @@
     @using (Ajax.BeginForm("ParInitialSettingsEdit", new AjaxOptions
     {
         UpdateTargetId = "departmentEdit",
-        HttpMethod = "POST"
+        HttpMethod = "POST",
+        OnSuccess = "closeDialog"
     }))
     {
         @Html.AntiForgeryToken()
@@ -160,5 +161,11 @@
         document.getElementById('nameDell').innerText = rezText;
         document.getElementById('idDell').value = rezId;
     }
+
+    var closeDialog = function () {
+        //$('#myModalEdit').modal('hide');
+        document.getElementById('myModalEdit').modal('hide');
+    }
+
 
 </script>
